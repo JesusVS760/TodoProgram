@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Todo from "./components/Todo";
+import "./App.css";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -22,25 +23,27 @@ export default function App() {
   }
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
-      {todos.map((todo, index) => {
-        return (
-          <Todo
-            key={index}
-            todo={todo.name}
-            completed={todo.completed}
-            deleteTodo={() => handleDeleteTodo(todo)}
-            completeTodo={() => handleCompleteTodo(todo)}
-          />
-        );
-      })}
-      <input
-        type="text"
-        onChange={(e) => {
-          setTrackTodo({ completed: false, name: e.target.value });
-        }}
-      />
-      <button onClick={handleTodos}>Add Todo</button>
-    </form>
+    <div className="container">
+      <form onSubmit={(e) => e.preventDefault()}>
+        {todos.map((todo, index) => {
+          return (
+            <Todo
+              key={index}
+              todo={todo.name}
+              completed={todo.completed}
+              deleteTodo={() => handleDeleteTodo(todo)}
+              completeTodo={() => handleCompleteTodo(todo)}
+            />
+          );
+        })}
+        <input
+          type="text"
+          onChange={(e) => {
+            setTrackTodo({ completed: false, name: e.target.value });
+          }}
+        />
+        <button onClick={handleTodos}>Add Todo</button>
+      </form>
+    </div>
   );
 }

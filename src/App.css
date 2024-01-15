@@ -11,6 +11,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
 }
 .container {
   display: flex;
@@ -21,21 +23,23 @@ body {
 }
 
 input {
-  padding: 12px;
+  padding: 10px;
   border-radius: 5px;
   border: none;
   outline: none;
   margin-bottom: 10px;
   width: 350px;
   background: #eef1ff;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 button {
-  padding: 10px;
+  padding: 8px;
   border-radius: 10px;
   cursor: pointer;
   background: #5dbea3;
   color: white;
   font-weight: 600;
   font-size: 16px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }

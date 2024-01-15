@@ -4,16 +4,18 @@ import "./App.css";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
-  const [TrackTodo, setTrackTodo] = useState({ name: "", completed: false });
+  const [trackTodo, setTrackTodo] = useState({ name: "", completed: false });
 
-  function handleTodos() {
-    setTodos([...todos, TrackTodo]);
+  function handleTodos(e) {
+    e.preventDefault(); // Prevent the default form submission behavior
+    setTodos([...todos, trackTodo]);
+    setTrackTodo({ name: "", completed: false }); // Clear the input after adding todo
   }
 
   function handleCompleteTodo(todo) {
-    const currentTodo = todos.filter((value) => value.name === todo.name);
+    const currentTodo = todos.find((value) => value.name === todo.name);
     const filterTodos = todos.filter((value) => value.name !== todo.name);
-    const completedTodo = { name: currentTodo[0].name, completed: true };
+    const completedTodo = { name: currentTodo.name, completed: true };
     setTodos([...filterTodos, completedTodo]);
   }
 
@@ -24,26 +26,27 @@ export default function App() {
 
   return (
     <div className="container">
-      <form onSubmit={(e) => e.preventDefault()}>
-        {todos.map((todo, index) => {
-          return (
-            <Todo
-              key={index}
-              todo={todo.name}
-              completed={todo.completed}
-              deleteTodo={() => handleDeleteTodo(todo)}
-              completeTodo={() => handleCompleteTodo(todo)}
-            />
-          );
-        })}
+      <form onSubmit={handleTodos}>
         <input
           type="text"
-          onChange={(e) => {
-            setTrackTodo({ completed: false, name: e.target.value });
-          }}
+          value={trackTodo.name}
+          onChange={(e) => setTrackTodo({ ...trackTodo, name: e.target.value })}
         />
-        <button onClick={handleTodos}>Add Todo</button>
+        <button type="submit" className="todo-btn">
+          Add Todo
+        </button>
       </form>
+      <div className="todos-container">
+        {todos.map((todo, index) => (
+          <Todo
+            key={index}
+            todo={todo.name}
+            completed={todo.completed}
+            deleteTodo={() => handleDeleteTodo(todo)}
+            completeTodo={() => handleCompleteTodo(todo)}
+          />
+        ))}
+      </div>
     </div>
   );
 }

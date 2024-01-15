@@ -1,0 +1,16 @@
+.todo-container {
+  width: 455px;
+  border-radius: 5px;
+  background: #eef1ff;
+}
+.btns button:nth-child(2) {
+  background: #cc3300;
+  color: whitesmoke;
+  font-weight: 600;
+}
+.btns button:nth-child(1) {
+  margin-right: 5px;
+  background: #339900;
+  color: whitesmoke;
+  font-weight: 600;
+}

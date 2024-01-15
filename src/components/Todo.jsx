@@ -1,12 +1,14 @@
+import "./CSS/todo.css";
+
 export default function Todo({ todo, completeTodo, completed, deleteTodo }) {
   return (
-    <div>
+    <div className="todo-container">
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
-          maxWidth: 300,
-
+          maxWidth: 500,
+          padding: "5px",
           textDecoration: completed ? "line-through" : undefined,
         }}
       >

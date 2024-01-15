@@ -6,9 +6,11 @@ export default function Todo({ todo, completeTodo, completed, deleteTodo }) {
       <div
         style={{
           display: "flex",
+          alignItems: "center",
           justifyContent: "space-between",
           maxWidth: 500,
           padding: "5px",
+          fontSize: 13,
           textDecoration: completed ? "line-through" : undefined,
         }}
       >

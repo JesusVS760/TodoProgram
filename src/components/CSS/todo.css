@@ -2,7 +2,9 @@
   width: 455px;
   border-radius: 5px;
   background: #eef1ff;
+  border: 1px solid black;
 }
+
 .btns button:nth-child(2) {
   background: #cc3300;
   color: whitesmoke;
